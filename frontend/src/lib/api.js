@@ -1,9 +1,6 @@
-/**
- * Frontend API Client
- * Centralizes all calls to the backend API.
- */
 
-const BACKEND_URL = 'http://localhost:8080/api';
+
+const BACKEND_URL = 'https://trading-yuwf.onrender.com/api';
 
 export async function getCandles(symbol, resolution, count) {
     const to = Math.floor(Date.now() / 1000);
