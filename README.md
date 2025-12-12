@@ -1,6 +1,6 @@
 # Crypto/Stock Trading Simulator
 
-A real-time trading simulator that visualizes market data and allows users to paper trade (simulate buy/sell) assets. Built with Next.js and Express, integrating with the Finnhub API for market data.
+A real-time trading simulator that visualizes market data and allows users to paper trade (simulate buy/sell) assets. Built with Next.js and Express, using a backend simulation engine for market data.
 
 ## Features
 
@@ -12,8 +12,8 @@ A real-time trading simulator that visualizes market data and allows users to pa
     -   Portfolio tracking (Holdings, Balance).
     -   Transaction history.
 -   **Market Data**:
-    -   Integration with Finnhub API for real-world data.
-    -   Fallback simulation engine when API limits are reached.
+    -   Backend simulation engine generating realistic price movements.
+    -   No external API keys required.
 -   **Modern UI**:
     -   Responsive Dashboard.
     -   Dark/Light mode support (via Tailwind CSS).
@@ -23,19 +23,17 @@ A real-time trading simulator that visualizes market data and allows users to pa
 -   **Frontend**: Next.js 15, React 19, Tailwind CSS 4.
 -   **Charting**: Chart.js, react-chartjs-2.
 -   **Backend**: Node.js, Express.
--   **Data Provider**: Finnhub.
 
 ## Prerequisites
 
 -   Node.js (v18+ recommended)
 -   npm or yarn
--   A Finnhub API Key (Get one for free at [finnhub.io](https://finnhub.io/))
 
 ## Setup & Installation
 
 ### 1. Backend Setup
 
-The backend handles API proxying to Finnhub to protect API keys and manage rate limits.
+The backend handles market data simulation.
 
 1.  Navigate to the backend directory:
     ```bash
@@ -45,13 +43,7 @@ The backend handles API proxying to Finnhub to protect API keys and manage rate 
     ```bash
     npm install
     ```
-3.  Configure Environment Variables:
-    Create a `.env` file in the `backend/` directory:
-    ```env
-    PORT=8080
-    NEXT_PUBLIC_FINNHUB_API_KEY=your_finnhub_api_key_here
-    ```
-4.  Start the backend server:
+3.  Start the backend server:
     ```bash
     npm start
     ```
