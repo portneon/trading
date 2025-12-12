@@ -1,7 +1,12 @@
 'use client';
 
 import React, { useEffect, useState, useRef } from 'react';
-import { ChartComponent } from './Chart';
+import dynamic from 'next/dynamic';
+
+const ChartComponent = dynamic(() => import('./Chart').then(mod => mod.ChartComponent), {
+    ssr: false,
+    loading: () => <p>Loading Chart...</p>
+});
 import { DataFeed } from '@/lib/data-feed';
 import { useTrading } from '@/context/TradingContext';
 
