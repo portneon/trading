@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-require('dotenv').config();
+
 const { fetchFinnhubQuote, fetchFinnhubCandles } = require('./services/finnhub-service');
 
 const app = express();

@@ -12,8 +12,6 @@
     "chart.js": "^4.5.1",
     "chartjs-plugin-zoom": "^2.2.0",
     "clsx": "^2.1.1",
-    "dotenv": "^17.2.3",
-    "finnhub": "^2.0.12",
     "next": "16.0.8",
     "react": "19.2.1",
     "react-chartjs-2": "^5.3.1",
