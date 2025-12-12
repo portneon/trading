@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Crypto/Stock Trading Simulator
 
-## Getting Started
+A real-time trading simulator that visualizes market data and allows users to paper trade (simulate buy/sell) assets. Built with Next.js and Express, integrating with the Finnhub API for market data.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+-   **Real-time Chart**: Live updating candlestick/line chart.
+    -   Includes Zoom and Pan functionality (`chartjs-plugin-zoom`).
+    -   Configurable timeframes and visual feedback.
+-   **Paper Trading**:
+    -   Buy and Sell functionality with a virtual wallet.
+    -   Portfolio tracking (Holdings, Balance).
+    -   Transaction history.
+-   **Market Data**:
+    -   Integration with Finnhub API for real-world data.
+    -   Fallback simulation engine when API limits are reached.
+-   **Modern UI**:
+    -   Responsive Dashboard.
+    -   Dark/Light mode support (via Tailwind CSS).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+-   **Frontend**: Next.js 15, React 19, Tailwind CSS 4.
+-   **Charting**: Chart.js, react-chartjs-2.
+-   **Backend**: Node.js, Express.
+-   **Data Provider**: Finnhub.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Prerequisites
 
-## Learn More
+-   Node.js (v18+ recommended)
+-   npm or yarn
+-   A Finnhub API Key (Get one for free at [finnhub.io](https://finnhub.io/))
 
-To learn more about Next.js, take a look at the following resources:
+## Setup & Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 1. Backend Setup
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The backend handles API proxying to Finnhub to protect API keys and manage rate limits.
 
-## Deploy on Vercel
+1.  Navigate to the backend directory:
+    ```bash
+    cd backend
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+3.  Configure Environment Variables:
+    Create a `.env` file in the `backend/` directory:
+    ```env
+    PORT=8080
+    NEXT_PUBLIC_FINNHUB_API_KEY=your_finnhub_api_key_here
+    ```
+4.  Start the backend server:
+    ```bash
+    npm start
+    ```
+    The server will run on `http://localhost:8080`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 2. Frontend Setup
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1.  Navigate to the project root:
+    ```bash
+    cd ..
+    ```
+2.  Install dependencies:
+    ```bash
+    npm install
+    ```
+3.  Start the development server:
+    ```bash
+    npm run dev
+    ```
+4.  Open [http://localhost:3000](http://localhost:3000) to view the app.
+
+## Project Structure
+
+-   `src/components`: React components (Chart, Dashboard, etc.).
+-   `src/context`: React Context for state management (TradingContext).
+-   `src/lib`: Utilities and API clients (data-feed, api wrappers).
+-   `backend/`: Express server and services.
+
+## Usage
+
+1.  **Start Feed**: Click the "Start Feed" button to begin receiving live updates.
+2.  **Trade**: Use the "Trade" box to buy or sell assets based on the current price.
+3.  **Zoom**: Mouse wheel to zoom in/out of the chart, drag to pan.
