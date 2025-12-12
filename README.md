@@ -57,6 +57,8 @@ The backend handles API proxying to Finnhub to protect API keys and manage rate 
     ```
     The server will run on `http://localhost:8080`.
 
+    > **Note**: A deployed instance of the backend is available at `https://trading-yuwf.onrender.com`. The frontend is configured to use this by default if no local backend is running or configured.
+
 ### 2. Frontend Setup
 
 1.  Navigate to the project root:
