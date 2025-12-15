@@ -2,44 +2,45 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import dynamic from 'next/dynamic';
-
-const ChartComponent = dynamic(() => import('./Chart').then(mod => mod.ChartComponent), {
-    ssr: false,
-    loading: () => <p>Loading Chart...</p>
-});
 import { DataFeed } from '@/lib/data-feed';
 import { useTrading } from '@/context/TradingContext';
+import { MarketStats } from './MarketStats';
+import { OrderForm } from './OrderForm';
+import { TransactionHistory } from './TransactionHistory';
+import FinancialNewsFeed from './FinancialNewsFeed';
+import { Footer } from './Footer';
+import { Activity, Power } from 'lucide-react';
+
+// Dynamic import for Chart to avoid SSR issues
+const PriceChart = dynamic(() => import('./PriceChart').then(mod => mod.PriceChart), {
+    ssr: false,
+    loading: () => <div className="w-full h-[500px] bg-slate-50 rounded-2xl animate-pulse" />
+});
 
 export default function Dashboard() {
+    // --- STATE & LOGIC ---
     const [data, setData] = useState([]);
     const [isRunning, setIsRunning] = useState(false);
+    const [quantity, setQuantity] = useState(1);
     const dataFeedRef = useRef(null);
     const { balance, holdings, transactions, buyStock, sellStock } = useTrading();
-    const [quantity, setQuantity] = useState(1);
 
-    const symbol = 'BINANCE:BTCUSDT'; // Hardcoded for this demo
+    const symbol = 'BINANCE:BTCUSDT';
 
     useEffect(() => {
-        // Initialize DataFeed on mount
         const feed = new DataFeed();
         dataFeedRef.current = feed;
 
-        // Fetch initial history
         feed.fetchHistory(symbol, '1', 100).then(initialData => {
             setData(initialData);
-            // Auto-start live feed
             feed.start(symbol, 2000);
             setIsRunning(true);
         });
 
-        // Subscribe to updates
         const unsubscribe = feed.subscribe((newCandle) => {
             setData((prevData) => {
                 const newData = [...prevData, newCandle];
-                if (newData.length > 2000) {
-                    return newData.slice(newData.length - 2000);
-                }
-                return newData;
+                return newData.slice(-200); // Keep last 200 candles for performance
             });
         });
 
@@ -51,159 +52,90 @@ export default function Dashboard() {
 
     const toggleFeed = () => {
         if (!dataFeedRef.current) return;
-
         if (isRunning) {
             dataFeedRef.current.stop();
         } else {
-            // Updated to match new signature: symbol, interval
             dataFeedRef.current.start(symbol, 2000);
         }
         setIsRunning(!isRunning);
     };
 
     const currentPrice = data.length > 0 ? data[data.length - 1].close : 0;
+    const previousPrice = data.length > 1 ? data[data.length - 2].close : currentPrice;
 
-    const handleBuy = () => {
-        if (currentPrice > 0) {
-            buyStock(symbol, currentPrice, Number(quantity));
-        }
-    };
-
-    const handleSell = () => {
-        if (currentPrice > 0) {
-            sellStock(symbol, currentPrice, Number(quantity));
-        }
-    };
-
+    // --- RENDER ---
     return (
-        <div className="p-6 max-w-6xl mx-auto space-y-6">
-            <header className="flex justify-between items-center">
-                <div>
-                    <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">Market Dashboard</h1>
-                    <p className="text-gray-500 dark:text-gray-400">Trading System with Finnhub Integration</p>
-                </div>
-                <div className="flex items-center space-x-4">
-                    <div className="text-right">
-                        <p className="text-sm text-gray-500">Wallet Balance</p>
-                        <p className="text-xl font-bold text-green-600">${balance.toFixed(2)}</p>
+        <div className="min-h-screen bg-[#F8FAFC] text-slate-900 font-sans pb-20">
+            {/* Header */}
+            <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200">
+                <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        <div className="p-2 bg-indigo-600 rounded-lg text-white">
+                            <Activity size={24} />
+                        </div>
+                        <div>
+                            <h1 className="text-xl font-bold tracking-tight text-slate-900">Trade<span className="text-indigo-600">-IN</span></h1>
+                            <p className="text-xs text-slate-500 font-medium">BTC/USDT Live Market</p>
+                        </div>
                     </div>
-                    <button
-                        onClick={toggleFeed}
-                        className={`px-4 py-2 rounded font-semibold transition-colors ${isRunning
-                            ? 'bg-red-500 hover:bg-red-600 text-white'
-                            : 'bg-green-500 hover:bg-green-600 text-white'
-                            }`}
-                    >
-                        {isRunning ? 'Stop Feed' : 'Start Feed'}
-                    </button>
+
+                    <div className="flex items-center gap-6">
+                        <div className="text-right hidden sm:block">
+                            <p className="text-xs text-slate-400 font-medium uppercase tracking-wider">Wallet Balance</p>
+                            <p className="text-xl font-bold text-slate-800">${balance.toFixed(2)}</p>
+                        </div>
+                        <button
+                            onClick={toggleFeed}
+                            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-semibold text-sm transition-all ${isRunning
+                                ? 'bg-rose-50 text-rose-600 border border-rose-100 hover:bg-rose-100'
+                                : 'bg-emerald-50 text-emerald-600 border border-emerald-100 hover:bg-emerald-100'
+                                }`}
+                        >
+                            <Power size={16} />
+                            {isRunning ? 'Stop Feed' : 'Start Feed'}
+                        </button>
+                    </div>
                 </div>
             </header>
 
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {/* Main Chart Area */}
-                <div className="lg:col-span-2 space-y-4">
-                    <main className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 border border-gray-200 dark:border-gray-700">
-                        <ChartComponent
-                            data={data}
-                            colors={{
-                                backgroundColor: 'transparent',
-                                textColor: '#333',
-                            }}
+            {/* Main Content */}
+            <main className="max-w-7xl mx-auto px-6 py-8 space-y-8">
+
+                {/* Stats Row */}
+                <MarketStats
+                    currentPrice={currentPrice}
+                    previousPrice={previousPrice}
+                    holdings={holdings}
+                    symbol={symbol}
+                />
+
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {/* Left Column: Chart */}
+                    <div className="lg:col-span-2 space-y-6">
+                        <PriceChart data={data} />
+                    </div>
+
+                    {/* Right Column: Trading & History */}
+                    <div className="space-y-6">
+                        <OrderForm
+                            symbol={symbol}
+                            quantity={quantity}
+                            setQuantity={setQuantity}
+                            currentPrice={currentPrice}
+                            onBuy={() => buyStock(symbol, currentPrice, Number(quantity))}
+                            onSell={() => sellStock(symbol, currentPrice, Number(quantity))}
                         />
-                    </main>
-
-                    {/* Market Stats */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div className="bg-white dark:bg-gray-800 p-4 rounded shadow border border-gray-200 dark:border-gray-700">
-                            <h3 className="text-sm font-medium text-gray-500">Current Price</h3>
-                            <p className="text-2xl font-bold">{currentPrice > 0 ? currentPrice.toFixed(2) : '---'}</p>
-                        </div>
-                        <div className="bg-white dark:bg-gray-800 p-4 rounded shadow border border-gray-200 dark:border-gray-700">
-                            <h3 className="text-sm font-medium text-gray-500">24h Change</h3>
-                            <p className={`text-2xl font-bold ${data.length > 1 && data[data.length - 1].close >= data[data.length - 2].close
-                                ? 'text-green-500'
-                                : 'text-red-500'
-                                }`}>
-                                {data.length > 1
-                                    ? (data[data.length - 1].close - data[data.length - 2].close).toFixed(2)
-                                    : '0.00'}
-                            </p>
-                        </div>
-                        <div className="bg-white dark:bg-gray-800 p-4 rounded shadow border border-gray-200 dark:border-gray-700">
-                            <h3 className="text-sm font-medium text-gray-500">Your Position</h3>
-                            <p className="text-2xl font-bold">{holdings[symbol] || 0} Units</p>
-                        </div>
+                        <TransactionHistory transactions={transactions} />
                     </div>
                 </div>
 
-                {/* Trading Controls & History */}
-                <div className="space-y-6">
-                    {/* Trade Box */}
-                    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
-                        <h2 className="text-xl font-bold mb-4">Trade {symbol}</h2>
-                        <div className="space-y-4">
-                            <div>
-                                <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-                                    Quantity
-                                </label>
-                                <input
-                                    type="number"
-                                    min="1"
-                                    value={quantity}
-                                    onChange={(e) => setQuantity(Number(e.target.value))}
-                                    className="w-full px-3 py-2 border rounded-md dark:bg-gray-700 dark:border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                                />
-                            </div>
-                            <div className="grid grid-cols-2 gap-4">
-                                <button
-                                    onClick={handleBuy}
-                                    disabled={currentPrice <= 0}
-                                    className="w-full py-3 bg-green-600 hover:bg-green-700 text-white font-bold rounded-md disabled:opacity-50 transition-colors"
-                                >
-                                    BUY
-                                </button>
-                                <button
-                                    onClick={handleSell}
-                                    disabled={currentPrice <= 0}
-                                    className="w-full py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-md disabled:opacity-50 transition-colors"
-                                >
-                                    SELL
-                                </button>
-                            </div>
-                            <div className="text-sm text-gray-500 text-center">
-                                Estimated Total: ${(currentPrice * quantity).toFixed(2)}
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Transaction History */}
-                    <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 max-h-[400px] overflow-y-auto">
-                        <h2 className="text-xl font-bold mb-4">Recent Transactions</h2>
-                        <div className="space-y-3">
-                            {transactions.length === 0 ? (
-                                <p className="text-gray-500 text-center py-4">No transactions yet</p>
-                            ) : (
-                                transactions.map(tx => (
-                                    <div key={tx.id} className="flex justify-between items-center p-3 hover:bg-gray-50 dark:hover:bg-gray-700 rounded transition-colors border-b border-gray-100 dark:border-gray-700 last:border-0">
-                                        <div>
-                                            <p className={`font-bold ${tx.type === 'BUY' ? 'text-green-600' : 'text-red-600'}`}>
-                                                {tx.type} {tx.symbol}
-                                            </p>
-                                            <p className="text-xs text-gray-400">
-                                                {new Date(tx.timestamp).toLocaleTimeString()}
-                                            </p>
-                                        </div>
-                                        <div className="text-right">
-                                            <p className="font-medium">{tx.quantity} @ {tx.price.toFixed(2)}</p>
-                                            <p className="text-xs text-gray-500">Total: ${tx.total.toFixed(2)}</p>
-                                        </div>
-                                    </div>
-                                ))
-                            )}
-                        </div>
-                    </div>
+                {/* News Section */}
+                <div className="pt-8 border-t border-slate-200">
+                    <FinancialNewsFeed />
                 </div>
-            </div>
+            </main>
+
+            <Footer />
         </div>
     );
 }

@@ -6,12 +6,13 @@ const { fetchFinnhubQuote, fetchFinnhubCandles } = require('./services/finnhub-s
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// Middleware
+
 app.use(cors());
 app.use(express.json());
 
-// Routes
-// 1. Get Quote
+const newsRouter = require('./news/news.router');
+app.use('/api/news', newsRouter);
+
 app.get('/api/quote', async (req, res) => {
     try {
         const { symbol } = req.query;
@@ -26,7 +27,7 @@ app.get('/api/quote', async (req, res) => {
     }
 });
 
-// 2. Get Candles
+
 app.get('/api/candles', async (req, res) => {
     try {
         const { symbol, resolution, from, to } = req.query;
@@ -41,16 +42,16 @@ app.get('/api/candles', async (req, res) => {
     }
 });
 
-// 3. Webhook (Placeholder - implement logic as needed)
 app.post('/api/webhook', (req, res) => {
     console.log("Webhook received:", req.body);
     res.status(200).json({ message: 'Webhook received' });
 });
 
-// Health check
+
 app.get('/', (req, res) => {
     res.send('Trading Backend is running');
 });
+
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);

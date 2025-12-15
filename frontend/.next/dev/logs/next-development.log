@@ -1,0 +1,51 @@
+[00:00:00.555] Server  LOG      ✓ Ready in 406ms
+[00:04:27.108] Server  LOG      ✓ Compiled in 158ms
+[00:04:29.063] Server  LOG      ✓ Compiled in 99ms
+[00:04:33.075] Server  LOG      ✓ Compiled in 67ms
+[00:08:38.024] Server  LOG      ✓ Compiled in 51ms
+[00:08:52.035] Server  LOG      ✓ Compiled in 127ms
+[00:08:52.621] Browser ERROR   uncaughtError: ReferenceError: FinancialNewsFeed is not defined
+[00:08:54.121] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:08:54.130] Server  WARN     ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+[00:08:54.149] Server  LOG      ✓ Compiled in 107ms
+[00:12:59.926] Server  LOG      ✓ Compiled in 89ms
+[00:13:00.608] Browser ERROR   ./trading/frontend/src/components/PriceChart.jsx:158:17
+Parsing ecmascript source code failed
+  156 |             grid: {
+  157 |                 display: false,
+> 158 |                 },
+      |                 ^
+  159 |             ticks: {
+  160 |                 maxTicksLimit: 8,
+  161 |                     maxRotation: 0,
+
+Expression expected
+
+Import trace:
+  Client Component Browser:
+    ./trading/frontend/src/components/PriceChart.jsx [Client Component Browser]
+    ./trading/frontend/src/components/Dashboard.jsx [Client Component Browser]
+    ./trading/frontend/src/components/Dashboard.jsx [Server Component]
+    ./trading/frontend/src/app/page.js [Server Component]
+[00:13:23.260] Server  LOG      ✓ Compiled in 23ms
+[00:13:23.608] Browser ERROR   ./trading/frontend/src/components/PriceChart.jsx:155:9
+Parsing ecmascript source code failed
+  153 |     };
+  154 | },
+> 155 |         },
+      |         ^
+  156 | y: {
+  157 |     position: 'right',
+  158 |         grid: {
+
+Unexpected token `}`. Expected yield, an identifier, [ or {
+
+Import trace:
+  Client Component Browser:
+    ./trading/frontend/src/components/PriceChart.jsx [Client Component Browser]
+    ./trading/frontend/src/components/Dashboard.jsx [Client Component Browser]
+    ./trading/frontend/src/components/Dashboard.jsx [Server Component]
+    ./trading/frontend/src/app/page.js [Server Component]
+[00:17:02.619] Server  LOG      ✓ Compiled in 93ms
+[00:21:23.290] Server  LOG      ✓ Compiled in 118ms
+[00:24:01.553] Server  LOG      ✓ Compiled in 166ms

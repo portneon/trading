@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Trading App",
+  title: "Trade-IN",
   description: "Live Trading System",
 };
 

@@ -81,7 +81,47 @@ const fetchFinnhubQuote = async (symbol) => {
     };
 };
 
+const fetchFinnhubNews = async (symbol) => {
+    // Return some mock news
+    return [
+        {
+            category: "technology",
+            datetime: Math.floor(Date.now() / 1000) - 3600,
+            headline: `${symbol || 'Market'} sees significant movement today`,
+            id: 123456,
+            image: "https://via.placeholder.com/150",
+            related: symbol || "General",
+            source: "Simulated News",
+            summary: "Market analysts are watching the trends closely as volatility increases.",
+            url: "https://example.com/news/1"
+        },
+        {
+            category: "business",
+            datetime: Math.floor(Date.now() / 1000) - 7200,
+            headline: "Global markets react to economic data",
+            id: 123457,
+            image: "https://via.placeholder.com/150",
+            related: "Global",
+            source: "Simulated Financials",
+            summary: "Investors are cautious amidst new economic reports released this morning.",
+            url: "https://example.com/news/2"
+        },
+        {
+            category: "technology",
+            datetime: Math.floor(Date.now() / 1000) - 10800,
+            headline: "Tech sector rallies ahead of earnings",
+            id: 123458,
+            image: "https://via.placeholder.com/150",
+            related: "Technology",
+            source: "Tech Daily",
+            summary: "Major tech companies are expected to announce strong earnings this quarter.",
+            url: "https://example.com/news/3"
+        }
+    ];
+};
+
 module.exports = {
     fetchFinnhubCandles,
-    fetchFinnhubQuote
+    fetchFinnhubQuote,
+    fetchFinnhubNews
 };
