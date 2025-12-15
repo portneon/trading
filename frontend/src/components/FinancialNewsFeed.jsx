@@ -2,7 +2,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { ExternalLink, Clock, Search, TrendingUp, Filter, AlertCircle } from 'lucide-react';
 
-// --- UTILITIES ---
+
 
 const formatDate = (timestamp) => {
     if (!timestamp) return '';
@@ -105,7 +105,8 @@ export default function FinancialNewsFeed() {
             else setLoadingMore(true);
 
             // Using the simulated backend URL with pagination
-            const response = await fetch(`http://localhost:8080/api/news?page=${pageNum}&limit=9`);
+            const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8080';
+            const response = await fetch(`${BACKEND_URL}/api/news?page=${pageNum}&limit=9`);
             if (!response.ok) {
                 throw new Error('Failed to fetch news');
             }
