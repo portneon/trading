@@ -1,7 +1,7 @@
 let newsCache = [];
 let lastFetchTime = 0;
 const CACHE_DURATION = 15 * 60 * 1000; 
-require('dotenv').config()
+
 const TOKEN = PROCESS.env.MY_TOKEN;
 async function getNews(req, res) {
     try {
