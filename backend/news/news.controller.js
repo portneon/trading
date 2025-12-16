@@ -1,14 +1,15 @@
 let newsCache = [];
 let lastFetchTime = 0;
-const CACHE_DURATION = 15 * 60 * 1000; // 15 minutes
-
+const CACHE_DURATION = 15 * 60 * 1000; 
+require('dotenv').config()
+const TOKEN = PROCESS.env.MY_TOKEN;
 async function getNews(req, res) {
     try {
         // Check cache
         const now = Date.now();
         if (newsCache.length === 0 || now - lastFetchTime > CACHE_DURATION) {
             console.log('Fetching fresh news from Finnhub...');
-            const data = await fetch('https://finnhub.io/api/v1/company-news?symbol=AAPL&from=2025-05-15&to=2025-06-20&token=d4thqohr01qnn6ll1u3gd4thqohr01qnn6ll1u40');
+            const data = await fetch(`https://finnhub.io/api/v1/company-news?symbol=AAPL&from=2025-05-15&to=2025-06-20&token=${TOKEN}`);
             const result = await data.json();
 
             if (Array.isArray(result)) {
