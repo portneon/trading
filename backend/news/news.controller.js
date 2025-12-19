@@ -1,16 +1,18 @@
 let newsCache = [];
 let lastFetchTime = 0;
-const CACHE_DURATION = 15 * 60 * 1000; 
+const CACHE_DURATION = 15 * 60 * 1000;
 
 const TOKEN = process.env.MY_TOKEN;
+
 async function getNews(req, res) {
     try {
-        // Check cache
+
         const now = Date.now();
         if (newsCache.length === 0 || now - lastFetchTime > CACHE_DURATION) {
             console.log('Fetching fresh news from Finnhub...');
-            const data = await fetch(`https://finnhub.io/api/v1/company-news?symbol=AAPL&from=2025-05-15&to=2025-06-20&token=${TOKEN}`);
+            const data = await fetch(`https://finnhub.io/api/v1/news?category=general&token=${TOKEN}`);
             const result = await data.json();
+            console.log("Finnhub API Result:", JSON.stringify(result));
 
             if (Array.isArray(result)) {
                 newsCache = result;
@@ -18,7 +20,7 @@ async function getNews(req, res) {
             }
         }
 
-        // Pagination
+
         const page = parseInt(req.query.page) || 1;
         const limit = parseInt(req.query.limit) || 9;
         const startIndex = (page - 1) * limit;
