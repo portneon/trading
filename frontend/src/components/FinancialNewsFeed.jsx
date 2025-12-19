@@ -105,7 +105,7 @@ export default function FinancialNewsFeed() {
             else setLoadingMore(true);
 
             // Using the simulated backend URL with pagination
-            const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:8080';
+            const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL || 'https://trading-yuwf.onrender.com';
             const response = await fetch(`${BACKEND_URL}/api/news?page=${pageNum}&limit=9`);
             if (!response.ok) {
                 throw new Error('Failed to fetch news');

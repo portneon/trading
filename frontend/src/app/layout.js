@@ -3,6 +3,9 @@ import "./globals.css";
 export const metadata = {
   title: "Trade-IN",
   description: "Live Trading System",
+  icons: {
+    icon: '/icon.png',
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -70,8 +70,8 @@ export default function Dashboard() {
             <header className="sticky top-0 z-30 bg-white/80 backdrop-blur-md border-b border-slate-200">
                 <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <div className="p-2 bg-indigo-600 rounded-lg text-white">
-                            <Activity size={24} />
+                        <div className="w-10 h-10 relative bg-white rounded-lg overflow-hidden shrink-0">
+                            <img src="/logo.png" alt="Trade-IN Logo" className="w-full h-full object-contain" />
                         </div>
                         <div>
                             <h1 className="text-xl font-bold tracking-tight text-slate-900">Trade<span className="text-indigo-600">-IN</span></h1>

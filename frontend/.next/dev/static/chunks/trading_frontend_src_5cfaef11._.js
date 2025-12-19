@@ -1147,6 +1147,7 @@ __turbopack_context__.s([
     "default",
     ()=>FinancialNewsFeed
 ]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = /*#__PURE__*/ __turbopack_context__.i("[project]/trading/frontend/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/trading/frontend/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/trading/frontend/node_modules/next/dist/compiled/react/compiler-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/trading/frontend/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
@@ -1161,7 +1162,6 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-// --- UTILITIES ---
 const formatDate = (timestamp)=>{
     if (!timestamp) return '';
     const date = new Date(timestamp * 1000);
@@ -1187,11 +1187,11 @@ const getSourceColor = (source)=>{
 // --- COMPONENTS ---
 const NewsCard = (t0)=>{
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(32);
-    if ($[0] !== "e3d9518cc922e8d57d34b8c0beaa224d59b1ec6a4adf272ecc94e6a4cbe68a58") {
+    if ($[0] !== "e9201a7c50ed2d76f511401566a9026bbf3d4c48b621c8b6370d023bfb981f2a") {
         for(let $i = 0; $i < 32; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "e3d9518cc922e8d57d34b8c0beaa224d59b1ec6a4adf272ecc94e6a4cbe68a58";
+        $[0] = "e9201a7c50ed2d76f511401566a9026bbf3d4c48b621c8b6370d023bfb981f2a";
     }
     const { article } = t0;
     const hasValidImage = article.image && article.image !== "";
@@ -1207,20 +1207,20 @@ const NewsCard = (t0)=>{
                     onError: _temp
                 }, void 0, false, {
                     fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                    lineNumber: 49,
+                    lineNumber: 46,
                     columnNumber: 94
                 }, ("TURBOPACK compile-time value", void 0)),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                     className: "absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"
                 }, void 0, false, {
                     fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                    lineNumber: 49,
+                    lineNumber: 46,
                     columnNumber: 288
                 }, ("TURBOPACK compile-time value", void 0))
             ]
         }, void 0, true, {
             fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-            lineNumber: 49,
+            lineNumber: 46,
             columnNumber: 27
         }, ("TURBOPACK compile-time value", void 0));
         $[1] = article.image;
@@ -1245,7 +1245,7 @@ const NewsCard = (t0)=>{
             children: article.source
         }, void 0, false, {
             fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-            lineNumber: 67,
+            lineNumber: 64,
             columnNumber: 10
         }, ("TURBOPACK compile-time value", void 0));
         $[6] = article.source;
@@ -1261,7 +1261,7 @@ const NewsCard = (t0)=>{
             className: "mr-1"
         }, void 0, false, {
             fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-            lineNumber: 76,
+            lineNumber: 73,
             columnNumber: 10
         }, ("TURBOPACK compile-time value", void 0));
         $[9] = t5;
@@ -1286,7 +1286,7 @@ const NewsCard = (t0)=>{
             ]
         }, void 0, true, {
             fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-            lineNumber: 91,
+            lineNumber: 88,
             columnNumber: 10
         }, ("TURBOPACK compile-time value", void 0));
         $[12] = t6;
@@ -1304,7 +1304,7 @@ const NewsCard = (t0)=>{
             ]
         }, void 0, true, {
             fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-            lineNumber: 99,
+            lineNumber: 96,
             columnNumber: 10
         }, ("TURBOPACK compile-time value", void 0));
         $[14] = t4;
@@ -1320,7 +1320,7 @@ const NewsCard = (t0)=>{
             children: article.headline
         }, void 0, false, {
             fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-            lineNumber: 108,
+            lineNumber: 105,
             columnNumber: 10
         }, ("TURBOPACK compile-time value", void 0));
         $[17] = article.headline;
@@ -1335,7 +1335,7 @@ const NewsCard = (t0)=>{
             children: article.summary
         }, void 0, false, {
             fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-            lineNumber: 116,
+            lineNumber: 113,
             columnNumber: 11
         }, ("TURBOPACK compile-time value", void 0));
         $[19] = article.summary;
@@ -1354,7 +1354,7 @@ const NewsCard = (t0)=>{
             ]
         }, void 0, true, {
             fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-            lineNumber: 124,
+            lineNumber: 121,
             columnNumber: 11
         }, ("TURBOPACK compile-time value", void 0));
         $[21] = t10;
@@ -1371,7 +1371,7 @@ const NewsCard = (t0)=>{
             className: "ml-1"
         }, void 0, false, {
             fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-            lineNumber: 134,
+            lineNumber: 131,
             columnNumber: 11
         }, ("TURBOPACK compile-time value", void 0));
         $[25] = t12;
@@ -1393,12 +1393,12 @@ const NewsCard = (t0)=>{
                 ]
             }, void 0, true, {
                 fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                lineNumber: 141,
+                lineNumber: 138,
                 columnNumber: 51
             }, ("TURBOPACK compile-time value", void 0))
         }, void 0, false, {
             fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-            lineNumber: 141,
+            lineNumber: 138,
             columnNumber: 11
         }, ("TURBOPACK compile-time value", void 0));
         $[26] = article.url;
@@ -1417,7 +1417,7 @@ const NewsCard = (t0)=>{
             ]
         }, void 0, true, {
             fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-            lineNumber: 149,
+            lineNumber: 146,
             columnNumber: 11
         }, ("TURBOPACK compile-time value", void 0));
         $[28] = t1;
@@ -1444,7 +1444,8 @@ function FinancialNewsFeed() {
             if (pageNum === 1) setLoading(true);
             else setLoadingMore(true);
             // Using the simulated backend URL with pagination
-            const response = await fetch(`http://localhost:8080/api/news?page=${pageNum}&limit=9`);
+            const BACKEND_URL = __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"].env.NEXT_PUBLIC_BACKEND_URL || 'https://trading-yuwf.onrender.com';
+            const response = await fetch(`${BACKEND_URL}/api/news?page=${pageNum}&limit=9`);
             if (!response.ok) {
                 throw new Error('Failed to fetch news');
             }
@@ -1531,12 +1532,12 @@ function FinancialNewsFeed() {
                 children: "Loading market intelligence..."
             }, void 0, false, {
                 fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                lineNumber: 237,
+                lineNumber: 235,
                 columnNumber: 17
             }, this)
         }, void 0, false, {
             fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-            lineNumber: 236,
+            lineNumber: 234,
             columnNumber: 12
         }, this);
     }
@@ -1548,7 +1549,7 @@ function FinancialNewsFeed() {
                     className: "mr-2"
                 }, void 0, false, {
                     fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                    lineNumber: 242,
+                    lineNumber: 240,
                     columnNumber: 17
                 }, this),
                 " Error: ",
@@ -1557,7 +1558,7 @@ function FinancialNewsFeed() {
             ]
         }, void 0, true, {
             fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-            lineNumber: 241,
+            lineNumber: 239,
             columnNumber: 12
         }, this);
     }
@@ -1575,7 +1576,7 @@ function FinancialNewsFeed() {
                                 size: 20
                             }, void 0, false, {
                                 fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                                lineNumber: 248,
+                                lineNumber: 246,
                                 columnNumber: 21
                             }, this),
                             "Latest Briefings",
@@ -1584,13 +1585,13 @@ function FinancialNewsFeed() {
                                 children: filteredNews.length
                             }, void 0, false, {
                                 fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                                lineNumber: 250,
+                                lineNumber: 248,
                                 columnNumber: 21
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                        lineNumber: 247,
+                        lineNumber: 245,
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1604,12 +1605,12 @@ function FinancialNewsFeed() {
                                         className: "h-4 w-4 text-slate-400 group-focus-within:text-indigo-500 transition-colors"
                                     }, void 0, false, {
                                         fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                                        lineNumber: 258,
+                                        lineNumber: 256,
                                         columnNumber: 29
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                                    lineNumber: 257,
+                                    lineNumber: 255,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1620,24 +1621,24 @@ function FinancialNewsFeed() {
                                     className: "block w-full pl-10 pr-3 py-2 border border-slate-200 rounded-xl text-sm leading-5 bg-white text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-100 focus:border-indigo-400 transition-all duration-200"
                                 }, void 0, false, {
                                     fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                                    lineNumber: 260,
+                                    lineNumber: 258,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                            lineNumber: 256,
+                            lineNumber: 254,
                             columnNumber: 21
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                        lineNumber: 255,
+                        lineNumber: 253,
                         columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                lineNumber: 246,
+                lineNumber: 244,
                 columnNumber: 13
             }, this),
             filteredNews.length > 0 ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1646,12 +1647,12 @@ function FinancialNewsFeed() {
                         article: article
                     }, article.id, false, {
                         fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                        lineNumber: 267,
+                        lineNumber: 265,
                         columnNumber: 50
                     }, this))
             }, void 0, false, {
                 fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                lineNumber: 266,
+                lineNumber: 264,
                 columnNumber: 40
             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                 className: "flex flex-col items-center justify-center py-20 text-center bg-white rounded-2xl border border-slate-100",
@@ -1663,12 +1664,12 @@ function FinancialNewsFeed() {
                             className: "text-slate-400"
                         }, void 0, false, {
                             fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                            lineNumber: 270,
+                            lineNumber: 268,
                             columnNumber: 25
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                        lineNumber: 269,
+                        lineNumber: 267,
                         columnNumber: 21
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1676,7 +1677,7 @@ function FinancialNewsFeed() {
                         children: "No briefings found"
                     }, void 0, false, {
                         fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                        lineNumber: 272,
+                        lineNumber: 270,
                         columnNumber: 21
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1684,13 +1685,13 @@ function FinancialNewsFeed() {
                         children: "Try adjusting your search terms."
                     }, void 0, false, {
                         fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                        lineNumber: 273,
+                        lineNumber: 271,
                         columnNumber: 21
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                lineNumber: 268,
+                lineNumber: 266,
                 columnNumber: 26
             }, this),
             hasMore && !searchTerm && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1703,25 +1704,25 @@ function FinancialNewsFeed() {
                             className: "w-5 h-5 border-2 border-indigo-600 border-t-transparent rounded-full animate-spin mr-3"
                         }, void 0, false, {
                             fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                            lineNumber: 279,
+                            lineNumber: 277,
                             columnNumber: 29
                         }, this),
                         "Fetching more updates..."
                     ]
                 }, void 0, true, {
                     fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                    lineNumber: 278,
+                    lineNumber: 276,
                     columnNumber: 37
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-                lineNumber: 277,
+                lineNumber: 275,
                 columnNumber: 40
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/trading/frontend/src/components/FinancialNewsFeed.jsx",
-        lineNumber: 245,
+        lineNumber: 243,
         columnNumber: 10
     }, this);
 }
@@ -1883,7 +1884,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$src$2
 var __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$src$2f$components$2f$TransactionHistory$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/trading/frontend/src/components/TransactionHistory.jsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$src$2f$components$2f$FinancialNewsFeed$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/trading/frontend/src/components/FinancialNewsFeed.jsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$src$2f$components$2f$Footer$2e$jsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/trading/frontend/src/components/Footer.jsx [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$activity$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Activity$3e$__ = __turbopack_context__.i("[project]/trading/frontend/node_modules/lucide-react/dist/esm/icons/activity.js [app-client] (ecmascript) <export default as Activity>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$power$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Power$3e$__ = __turbopack_context__.i("[project]/trading/frontend/node_modules/lucide-react/dist/esm/icons/power.js [app-client] (ecmascript) <export default as Power>");
 ;
 ;
@@ -1920,11 +1920,11 @@ _c = PriceChart;
 function Dashboard() {
     _s();
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(56);
-    if ($[0] !== "3b377ea61b598bafc2021fcf95f8f8659914728bcb3199835a7cf7b36640b3f1") {
+    if ($[0] !== "a5126f8ef8ed5864c584b2c424da519de963a480a02a1c2d5a5fa302fd72b980") {
         for(let $i = 0; $i < 56; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "3b377ea61b598bafc2021fcf95f8f8659914728bcb3199835a7cf7b36640b3f1";
+        $[0] = "a5126f8ef8ed5864c584b2c424da519de963a480a02a1c2d5a5fa302fd72b980";
     }
     let t0;
     if ($[1] === Symbol.for("react.memo_cache_sentinel")) {
@@ -2005,13 +2005,15 @@ function Dashboard() {
     let t4;
     if ($[6] === Symbol.for("react.memo_cache_sentinel")) {
         t4 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-            className: "p-2 bg-indigo-600 rounded-lg text-white",
-            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$activity$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Activity$3e$__["Activity"], {
-                size: 24
+            className: "w-10 h-10 relative bg-white rounded-lg overflow-hidden shrink-0",
+            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$trading$2f$frontend$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                src: "/logo.png",
+                alt: "Trade-IN Logo",
+                className: "w-full h-full object-contain"
             }, void 0, false, {
                 fileName: "[project]/trading/frontend/src/components/Dashboard.jsx",
                 lineNumber: 109,
-                columnNumber: 67
+                columnNumber: 91
             }, this)
         }, void 0, false, {
             fileName: "[project]/trading/frontend/src/components/Dashboard.jsx",
